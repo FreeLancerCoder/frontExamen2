@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tables',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tables.component.html',
-  styleUrl: './tables.component.css'
+  styleUrls: ['./tables.component.css']
 })
-export default class TablesComponent {
-
-}
+export class TablesComponent { }
