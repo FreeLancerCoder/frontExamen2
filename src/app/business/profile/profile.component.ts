@@ -52,7 +52,7 @@ export class ProfileComponent implements OnInit {
   }
 
   loadUsers() {
-    this.http.get<User[]>('http://192.168.0.17/usuarios/').subscribe(
+    this.http.get<User[]>('http://192.168.1.109/usuarios/').subscribe(
       data => {
         this.users = data;
       },
@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit {
 
   deleteUser() {
     if (this.userIdToDelete !== null) {
-      this.http.delete(`http://192.168.0.17/usuarios/${this.userIdToDelete}`).subscribe(
+      this.http.delete(`http://192.168.1.109/usuarios/${this.userIdToDelete}`).subscribe(
         () => {
           this.showToast('Usuario eliminado con éxito', 'success');
           this.loadUsers(); // Recargar la lista de usuarios después de eliminar
@@ -128,7 +128,7 @@ export class ProfileComponent implements OnInit {
 
     if (this.isEditMode) {
         // Lógica para actualizar el usuario
-        this.http.put<User>(`http://192.168.0.17/usuarios/${user.id}`, userPayload).subscribe(
+        this.http.put<User>(`http://192.168.1.109/usuarios/${user.id}`, userPayload).subscribe(
             response => {
                 this.showToast('Usuario actualizado con éxito', 'success');
                 this.loadUsers(); // Recargar la lista de usuarios
@@ -140,7 +140,7 @@ export class ProfileComponent implements OnInit {
         );
     } else {
         // Lógica para crear un nuevo usuario
-        this.http.post<User>('http://192.168.0.17/usuarios/', userPayload).subscribe(
+        this.http.post<User>('http://192.168.1.109/usuarios/', userPayload).subscribe(
             response => {
                 this.showToast('Usuario creado con éxito', 'success');
                 this.loadUsers(); // Recargar la lista de usuarios

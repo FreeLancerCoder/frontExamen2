@@ -70,7 +70,7 @@ export class UserModalComponent implements OnInit {
   }
 
   loadRoles() {
-    this.http.get<Role[]>('http://192.168.0.17/roles/').subscribe(
+    this.http.get<Role[]>('http://192.168.1.109/roles/').subscribe(
       data => {
         this.roles = data;
       },
