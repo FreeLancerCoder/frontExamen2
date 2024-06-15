@@ -44,7 +44,7 @@ export class CarrerasComponent implements OnInit {
   }
 
   loadCarreras() {
-    this.http.get<Carrera[]>('http://192.168.0.17/carreras/').subscribe(
+    this.http.get<Carrera[]>('http://192.168.0.15/carreras/').subscribe(
       data => {
         this.carreras = data;
       },
@@ -73,7 +73,7 @@ export class CarrerasComponent implements OnInit {
 
   deleteCarrera() {
     if (this.carreraIdToDelete !== null) {
-      this.http.delete(`http://192.168.0.17/carreras/${this.carreraIdToDelete}`).subscribe(
+      this.http.delete(`http://192.168.0.15/carreras/${this.carreraIdToDelete}`).subscribe(
         () => {
           this.showToast('Carrera eliminada con éxito', 'success');
           this.loadCarreras(); // Recargar la lista de carreras después de eliminar
@@ -96,7 +96,7 @@ export class CarrerasComponent implements OnInit {
   saveCarrera(carrera: Carrera) {
     if (this.isEditMode) {
       // Lógica para actualizar la carrera
-      this.http.put<Carrera>(`http://192.168.0.17/carreras/${carrera.id}`, carrera).subscribe(
+      this.http.put<Carrera>(`http://192.168.0.15/carreras/${carrera.id}`, carrera).subscribe(
         response => {
           this.showToast('Carrera actualizada con éxito', 'success');
           this.loadCarreras(); // Recargar la lista de carreras
@@ -109,7 +109,7 @@ export class CarrerasComponent implements OnInit {
       );
     } else {
       // Lógica para crear una nueva carrera
-      this.http.post<Carrera>('http://192.168.0.17/carreras/', carrera).subscribe(
+      this.http.post<Carrera>('http://192.168.0.15/carreras/', carrera).subscribe(
         response => {
           this.showToast('Carrera creada con éxito', 'success');
           this.loadCarreras(); // Recargar la lista de carreras

@@ -45,6 +45,30 @@ export const routes: Routes = [
         canActivate: [roleGuard],
         data: { expectedRole: 'ADMIN' }
       },
+      {
+        path: 'departamentos',
+        loadComponent: () => import('./business/departamento/departamento.component').then(m => m.DepartamentoComponent),
+        canActivate: [roleGuard],
+        data: { expectedRole: 'ADMIN' }
+      },
+      {
+        path: 'docentes',
+        loadComponent: () => import('./business/docente/docente.component').then(m => m.DocenteComponent),
+        canActivate: [roleGuard],
+        data: { expectedRole: 'ADMIN' }
+      },
+      {
+        path: 'sesionesclase',
+        loadComponent: () => import('./business/sesion-clase/sesion-clase.component').then(m => m.SesionClaseComponent),
+        canActivate: [roleGuard],
+        data: { expectedRole: 'ADMIN' }
+      },
+      {
+        path: 'programacionesacademicas',
+        loadComponent: () => import('./business/programacion-academica/programacion-academica.component').then(m => m.ProgramacionAcademicaComponent),
+        canActivate: [roleGuard],
+        data: { expectedRole: 'ADMIN' }
+      },
     ]
   },
   {

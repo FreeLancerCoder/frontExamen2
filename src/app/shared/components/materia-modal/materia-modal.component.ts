@@ -63,7 +63,7 @@ export class MateriaModalComponent implements OnInit {
   }
 
   loadCarreras() {
-    this.http.get<Carrera[]>('http://192.168.0.17/carreras/').subscribe(
+    this.http.get<Carrera[]>('http://192.168.0.15/carreras/').subscribe(
       data => {
         this.carreras = data;
       },

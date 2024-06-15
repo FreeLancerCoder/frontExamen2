@@ -40,7 +40,7 @@ export class AulasComponent implements OnInit {
   }
 
   loadAulas() {
-    this.http.get<Aula[]>('http://192.168.0.17/aulas/').subscribe(
+    this.http.get<Aula[]>('http://192.168.0.7/aulas/').subscribe(
       data => {
         this.aulas = data;
       },
@@ -69,7 +69,7 @@ export class AulasComponent implements OnInit {
 
   deleteAula() {
     if (this.aulaIdToDelete !== null) {
-      this.http.delete(`http://192.168.0.17/aulas/${this.aulaIdToDelete}`).subscribe(
+      this.http.delete(`http://192.168.0.7/aulas/${this.aulaIdToDelete}`).subscribe(
         () => {
           this.showToast('Aula eliminada con éxito', 'success');
           this.loadAulas(); // Recargar la lista de aulas después de eliminar
@@ -92,7 +92,7 @@ export class AulasComponent implements OnInit {
   saveAula(aula: Aula) {
     if (this.isEditMode) {
       // Lógica para actualizar el aula
-      this.http.put<Aula>(`http://192.168.0.17/aulas/${aula.id}`, aula).subscribe(
+      this.http.put<Aula>(`http://192.168.0.7/aulas/${aula.id}`, aula).subscribe(
         response => {
           this.showToast('Aula actualizada con éxito', 'success');
           this.loadAulas(); // Recargar la lista de aulas
@@ -104,7 +104,7 @@ export class AulasComponent implements OnInit {
       );
     } else {
       // Lógica para crear un nuevo aula
-      this.http.post<Aula>('http://192.168.0.17/aulas/', aula).subscribe(
+      this.http.post<Aula>('http://192.168.0.7/aulas/', aula).subscribe(
         response => {
           this.showToast('Aula creada con éxito', 'success');
           this.loadAulas(); // Recargar la lista de aulas

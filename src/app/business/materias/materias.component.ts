@@ -49,7 +49,7 @@ export class MateriasComponent implements OnInit {
   }
 
   loadMaterias() {
-    this.http.get<Materia[]>('http://192.168.0.17/materias/').subscribe(
+    this.http.get<Materia[]>('http://192.168.0.15/materias/').subscribe(
       data => {
         this.materias = data;
       },
@@ -86,7 +86,7 @@ export class MateriasComponent implements OnInit {
 
   deleteMateria() {
     if (this.materiaIdToDelete !== null) {
-      this.http.delete(`http://192.168.0.17/materias/${this.materiaIdToDelete}`).subscribe(
+      this.http.delete(`http://192.168.0.15/materias/${this.materiaIdToDelete}`).subscribe(
         () => {
           this.showToast('Materia eliminada con éxito', 'success');
           this.loadMaterias(); // Recargar la lista de materias después de eliminar
@@ -109,7 +109,7 @@ export class MateriasComponent implements OnInit {
   saveMateria(materia: Materia) {
     if (this.isEditMode) {
       // Lógica para actualizar la materia
-      this.http.put<Materia>(`http://192.168.0.17/materias/${materia.id}`, materia).subscribe(
+      this.http.put<Materia>(`http://192.168.0.15/materias/${materia.id}`, materia).subscribe(
         response => {
           this.showToast('Materia actualizada con éxito', 'success');
           this.loadMaterias(); // Recargar la lista de materias
@@ -121,7 +121,7 @@ export class MateriasComponent implements OnInit {
       );
     } else {
       // Lógica para crear una nueva materia
-      this.http.post<Materia>('http://192.168.0.17/materias/', materia).subscribe(
+      this.http.post<Materia>('http://192.168.0.15/materias/', materia).subscribe(
         response => {
           this.showToast('Materia creada con éxito', 'success');
           this.loadMaterias(); // Recargar la lista de materias

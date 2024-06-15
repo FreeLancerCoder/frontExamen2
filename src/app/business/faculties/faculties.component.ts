@@ -34,7 +34,7 @@ export class FacultiesComponent implements OnInit {
   }
 
   loadFaculties() {
-    this.http.get<Faculty[]>('http://192.168.0.17/facultades/').subscribe(
+    this.http.get<Faculty[]>('http://192.168.0.15/facultades/').subscribe(
       data => {
         this.faculties = data;
       },
@@ -63,7 +63,7 @@ export class FacultiesComponent implements OnInit {
 
   deleteFaculty() {
     if (this.facultyIdToDelete !== null) {
-      this.http.delete(`http://192.168.0.17/facultades/${this.facultyIdToDelete}`).subscribe(
+      this.http.delete(`http://192.168.0.15/facultades/${this.facultyIdToDelete}`).subscribe(
         () => {
           this.showToast('Facultad eliminada con éxito', 'success');
           this.loadFaculties(); // Recargar la lista de facultades después de eliminar
@@ -86,7 +86,7 @@ export class FacultiesComponent implements OnInit {
   saveFaculty(faculty: Faculty) {
     if (this.isEditMode) {
       // Lógica para actualizar la facultad
-      this.http.put<Faculty>(`http://192.168.0.17/facultades/${faculty.id}`, faculty).subscribe(
+      this.http.put<Faculty>(`http://192.168.0.15/facultades/${faculty.id}`, faculty).subscribe(
         response => {
           this.showToast('Facultad actualizada con éxito', 'success');
           this.loadFaculties(); // Recargar la lista de facultades
@@ -99,7 +99,7 @@ export class FacultiesComponent implements OnInit {
       );
     } else {
       // Lógica para crear una nueva facultad
-      this.http.post<Faculty>('http://192.168.0.17/facultades/', faculty).subscribe(
+      this.http.post<Faculty>('http://192.168.0.15/facultades/', faculty).subscribe(
         response => {
           this.showToast('Facultad creada con éxito', 'success');
           console.log("F");

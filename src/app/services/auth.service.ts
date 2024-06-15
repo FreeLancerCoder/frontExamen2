@@ -37,6 +37,6 @@ export class AuthService {
   }
 
   getUserInfo(userId: string): Observable<any> {
-    return this.http.get(`http://192.168.0.17/usuarios/${userId}`);
+    return this.http.get(`http://192.168.0.15/usuarios/${userId}`);
   }
 }

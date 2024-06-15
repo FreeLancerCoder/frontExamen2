@@ -52,7 +52,7 @@ export class AulaModalComponent implements OnInit {
   }
 
   loadFacultades() {
-    this.http.get<Facultad[]>('http://192.168.0.17/facultades/').subscribe(
+    this.http.get<Facultad[]>('http://192.168.0.7/facultades/').subscribe(
       data => {
         this.facultades = data;
       },

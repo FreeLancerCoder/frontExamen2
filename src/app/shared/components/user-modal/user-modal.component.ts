@@ -70,15 +70,17 @@ export class UserModalComponent implements OnInit {
   }
 
   loadRoles() {
-    this.http.get<Role[]>('http://192.168.0.17/roles/').subscribe(
+    this.http.get<Role[]>('http://192.168.0.15/roles/').subscribe(
       data => {
-        this.roles = data;
+        // Filtrar roles que no sean "DOCENTE"
+        this.roles = data.filter(role => role.nombre !== 'DOCENTE');
       },
       error => {
         console.error('Error loading roles', error);
       }
     );
   }
+
 
   showToast(message: string, type: string) {
     this.toastMessage = message;

@@ -54,7 +54,7 @@ export class CarreraModalComponent implements OnInit {
   }
 
   loadFacultades() {
-    this.http.get<Facultad[]>('http://192.168.0.17/facultades/').subscribe(
+    this.http.get<Facultad[]>('http://192.168.0.15/facultades/').subscribe(
       data => {
         this.facultades = data;
       },

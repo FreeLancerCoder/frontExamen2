@@ -43,7 +43,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    this.http.post<any>('http://192.168.0.17/authenticate/', credentials).subscribe(
+    this.http.post<any>('http://192.168.0.7/authenticate/', credentials).subscribe(
       response => {
         console.log('Response:', response);
 
